@@ -9,6 +9,7 @@ import win32api, win32con
 from PIL import Image
 import os
 
+sleeptime = 0.3
 
 def left_click(x,y):
     win32api.SetCursorPos((x,y))
@@ -95,12 +96,13 @@ def leave(break_in_type, combo):
     
     ss.save(os.path.join(dirname, str(combo)+'two.png'))
     exit(combo)
+
 def breifcase():
     max_value = 9
     current = [0, 0, 0, 0]
     while keyboard.is_pressed("esc") == False and pyautogui.pixel(1002,491)[0] == 0:
         i = 3
-        # time.sleep(0.005)
+        time.sleep(sleeptime)
         print(current)
         keyboard.press_and_release("tab")
         time.sleep(0.001)
@@ -203,7 +205,7 @@ while keyboard.is_pressed("esc") == False:
         combo+=new_char
         x+=1
     print(combo)
-    time.sleep(0.042)
+    time.sleep(sleeptime)
     if keyboard.is_pressed("q") == True or pause == True:
         print("paused")
         time.sleep(3)
