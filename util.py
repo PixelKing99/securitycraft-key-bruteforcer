@@ -2,11 +2,11 @@ import pyautogui
 import time
 import keyboard
 
-DEBUG = False
+from consts import *
 
-def left_click(x,y):
-    if DEBUG: print(f"clicking {x} {y}")
-    pyautogui.click(x, y)
+def left_click(c):
+    if DEBUG: print(f"clicking {c[0]} {c[1]}")
+    pyautogui.click(c[0], c[1])
 
 # this will be buggy if 'raw input' is on in your mouse settings
 def right_click():
@@ -47,4 +47,12 @@ def comboToString(comboArray, character_list):
 
 
 def checkExitKey():
-    return isPressed("space") or isPressed("esc")
+    return isPressed("space") or isPressed("esc") or isPressed("s")
+
+
+
+def check_blacklisted_times():
+    hour = list(time.localtime())[3]
+    if DEBUG: print("hour:", hour)
+
+    return hour in BLACKLISTED_TIMES

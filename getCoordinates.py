@@ -1,15 +1,8 @@
 import pyautogui
 import time
-import utils as u
+import util as u
 
-# uses the mouse to press the arrows instead of using the tab keys to navigate due to the fact that making sure the tab presses register is quite slow
-USE_FAST_BRIEFCASE_MODE = True
-
-# 'enum' of bruteforce types
-CHEST = 0
-BRIEFCASE = 1
-ITEM_FRAME = 2
-DOOR = 3
+from consts import *
 
 
 # for saving mouse coordinates to use in the macro
